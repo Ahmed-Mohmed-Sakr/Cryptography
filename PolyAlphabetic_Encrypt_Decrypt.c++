@@ -35,7 +35,7 @@ cout<<"\n";
             if (islower(key[count])) {
                 result += EncryptDecrypt(text[i], (key[count] - 'a'));
             } else {
-                cout<<count<<"   "<<key[count]<<"    "<<(key[count] - 'A')<<"\n";
+                ////cout<<count<<"   "<<key[count]<<"    "<<(key[count] - 'A')<<"\n";
                 result += EncryptDecrypt(text[i], (key[count] - 'A'));
             }
             count++;
