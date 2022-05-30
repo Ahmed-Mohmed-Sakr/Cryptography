@@ -10,7 +10,7 @@ using namespace std;
 **/
 
 char matrix[5][5];
-map<char,pair<int,int>>mp;
+map<char,pair<int,int>>matrixToQuiclyAcss;
 
 void getMatrixReady() {
 
@@ -20,11 +20,11 @@ void getMatrixReady() {
         for(int j=0;j<5;j++) {
             if(c=='q') {
                 matrix[i][j]=c;
-                mp[c] = {i, j};
-                mp['z'] = {i,j};
+                matrixToQuiclyAcss[c] = {i, j};
+                matrixToQuiclyAcss['z'] = {i, j};
             }else {
                 matrix[i][j]=c;
-                mp[c] = {i, j};
+                matrixToQuiclyAcss[c] = {i, j};
             }
             c++;
         }
@@ -42,8 +42,8 @@ string CompositionEncrypt(string &text) {
             if(isupper(text[i]))
                 text[i]+=32;
 
-            arr.push_back(mp[text[i]].first);
-            arr.push_back(mp[text[i]].second);
+            arr.push_back(matrixToQuiclyAcss[text[i]].first);
+            arr.push_back(matrixToQuiclyAcss[text[i]].second);
         }
     }
 
@@ -67,8 +67,8 @@ string CompositionDecrypt(string &text) {
         if (isupper(text[i]))
             text[i] += 32;
 
-        arr[i] = mp[text[i]].first;
-        arr[i + textlen] = mp[text[i]].second;
+        arr[i] = matrixToQuiclyAcss[text[i]].first;
+        arr[i + textlen] = matrixToQuiclyAcss[text[i]].second;
 
     }
 
